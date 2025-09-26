@@ -5,7 +5,7 @@ public class Clientes{
     private string datosReferenciaDireccion;
 
     
-     public Clientes() { }
+    public Clientes() { }
     public Clientes(string nombre, string direccion, string telefono, string datosRefDirec){
         this.nombre = nombre;
         this.direccion = direccion;

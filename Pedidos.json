@@ -1,0 +1,20 @@
+[
+  {
+    "Nro": 0,
+    "Obs": "Grite mucho al llegar",
+    "EstadoPedido": 1,
+    "Cadete": {
+      "Id": 26,
+      "Nombre": "Lucas GroundRunner",
+      "Direccion": "Avenida Siempreviva 742",
+      "Telefono": "555-2222",
+      "CantidadDePedidosEntregados": 2
+    },
+    "Cliente": {
+      "Nombre": "Javier",
+      "Direccion": "Calle de mentira 123",
+      "Telefono": "381123123",
+      "DatosReferenciaDireccion": "Casa linda"
+    }
+  }
+]
