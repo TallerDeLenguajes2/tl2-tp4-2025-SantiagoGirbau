@@ -16,16 +16,18 @@ public class AccesoADatosJSON : IAccesoADatos
 
         var textoPedidos = File.ReadAllText("Pedidos.json");
 
-        cadeteria.ListadoPedidos = JsonSerializer.Deserialize<List<Pedidos>>(textoPedidos);
+        cadeteria.ListadoPedidos = JsonSerializer.Deserialize<List<Pedido>>(textoPedidos);
 
         return cadeteria;
     }
-    public void GuardarPedidos(List<Pedidos> pedidos)
+    public void GuardarPedidos(List<Pedido> pedidos)
     {
         // Serializo la lista en JSON con formato indentado (más legible)
         string jsonString = JsonSerializer.Serialize(pedidos, new JsonSerializerOptions { WriteIndented = true });
-
+        
         // Guardo el JSON en un archivo
         File.WriteAllText("Pedidos.json", jsonString);
+
+        
     }
 }

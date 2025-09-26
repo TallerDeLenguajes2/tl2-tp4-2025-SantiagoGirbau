@@ -49,7 +49,7 @@ namespace CadeteriaWebApi.Controllers
         {
             Clientes cliente = new Clientes(nombreCliente, direccionCliente, telefonoCliente, datosReferencia);
 
-            Pedidos pedido = new Pedidos(observaciones, cliente);
+            Pedido pedido = new Pedido(observaciones, cliente);
 
             cadeteria.ListadoPedidos.Add(pedido);
             accesoADatos.GuardarPedidos(cadeteria.ListadoPedidos);
@@ -72,17 +72,17 @@ namespace CadeteriaWebApi.Controllers
             switch (Estado)
             {
                 case 0:
-                    pedido.EstadoPedido = Pedidos.Estado.pendiente;
+                    pedido.EstadoPedido = Pedido.Estado.pendiente;
                     break;
                 case 1:
-                    pedido.EstadoPedido = Pedidos.Estado.entregado;
+                    pedido.EstadoPedido = Pedido.Estado.entregado;
                     cadeteria.ListadoPedidos[idPedido].Cadete.CantidadDePedidosEntregados++;
                     break;
                 case 2:
-                    pedido.EstadoPedido = Pedidos.Estado.cancelado;
+                    pedido.EstadoPedido = Pedido.Estado.cancelado;
                     break;
                 default:
-                    pedido.EstadoPedido = Pedidos.Estado.pendiente;
+                    pedido.EstadoPedido = Pedido.Estado.pendiente;
                     break;
             }
 

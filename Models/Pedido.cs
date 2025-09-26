@@ -1,4 +1,4 @@
-public class Pedidos{
+public class Pedido{
     private static int nroMax = 0;
     private int nro;
     private string obs;
@@ -13,7 +13,7 @@ public class Pedidos{
     public Cadetes Cadete { get => cadete; set => cadete = value; }
      public Clientes Cliente { get => cliente; set => cliente = value; }
 
-    public Pedidos(string obs, Clientes cliente){
+    public Pedido(string obs, Clientes cliente){
 
         nro = nroMax;
         nroMax++;

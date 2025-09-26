@@ -5,8 +5,8 @@ public class Cadeteria
     private string nombre;
     private string telefono;
     private List<Cadetes> listadoCadetes;
-    private List<Pedidos> listadoPedidos;
-    public List<Pedidos> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
+    private List<Pedido> listadoPedidos;
+    public List<Pedido> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
     public List<Cadetes> ListadoCadetes { get => listadoCadetes; set => listadoCadetes = value; }
     public string Nombre { get => nombre; set => nombre = value; }
     public string Telefono { get => telefono; set => telefono = value; }
@@ -15,7 +15,7 @@ public class Cadeteria
         this.nombre = nombre;
         this.telefono = telefono;
         this.ListadoCadetes = new List<Cadetes>();
-        this.ListadoPedidos = new List<Pedidos>();
+        this.ListadoPedidos = new List<Pedido>();
     }
 
      public List<string> ListarCadetes()
@@ -55,7 +55,7 @@ public class Cadeteria
     Clientes cliente = new Clientes(nombreCliente, direccionCliente, telefonoCliente, datosReferencia);
 
     // Crear pedido
-    Pedidos pedido = new Pedidos(observaciones, cliente);
+    Pedido pedido = new Pedido(observaciones, cliente);
 
     // Agregar al listado
     ListadoPedidos.Add(pedido);
