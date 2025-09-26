@@ -45,7 +45,7 @@ namespace CadeteriaWebApi.Controllers
         }
 
         [HttpPost("AgregarPedido")]
-        public ActionResult<Pedidos> AgregarPedido(string nombreCliente, string direccionCliente, string telefonoCliente, string datosReferencia, string observaciones)
+        public IActionResult AgregarPedido(string nombreCliente, string direccionCliente, string telefonoCliente, string datosReferencia, string observaciones)
         {
             Clientes cliente = new Clientes(nombreCliente, direccionCliente, telefonoCliente, datosReferencia);
 
@@ -56,17 +56,17 @@ namespace CadeteriaWebApi.Controllers
             return Created();
         }
         [HttpPut("AsignarPedido")]
-        public ActionResult<Pedidos> AsignarPedido(int idPedido, int idCadete)
+        public IActionResult AsignarPedido(int idPedido, int idCadete)
         {
             var pedido = cadeteria.ListadoPedidos[idPedido];
             var cadete = cadeteria.ListadoCadetes[idCadete];
             pedido.Cadete = cadete;
             accesoADatos.GuardarPedidos(cadeteria.ListadoPedidos);
-            return Ok(pedido);
+            return NoContent();
         }
 
         [HttpPut("CambiarEstadoPedido")]
-        public ActionResult<Pedidos> CambiarEstadoPedido(int idPedido, int Estado)
+        public IActionResult CambiarEstadoPedido(int idPedido, int Estado)
         {
             var pedido = cadeteria.ListadoPedidos[idPedido];
             switch (Estado)
@@ -87,16 +87,16 @@ namespace CadeteriaWebApi.Controllers
             }
 
             accesoADatos.GuardarPedidos(cadeteria.ListadoPedidos);
-            return Ok(pedido);
+            return NoContent();
         }
         [HttpPut("CambiarCadetePedido")]
-        public ActionResult<Pedidos> CambiarCadetePedido(int idPedido, int idNuevoCadete)
+        public IActionResult CambiarCadetePedido(int idPedido, int idNuevoCadete)
         {
             var pedido = cadeteria.ListadoPedidos[idPedido];
             var cadete = cadeteria.ListadoCadetes[idNuevoCadete];
             pedido.Cadete = cadete;
             accesoADatos.GuardarPedidos(cadeteria.ListadoPedidos);
-            return Ok(pedido);
+            return NoContent();
         }
     }
 }
