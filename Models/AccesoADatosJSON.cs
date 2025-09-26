@@ -20,9 +20,6 @@ public class AccesoADatosJSON : IAccesoADatos
 
         return cadeteria;
     }
-
-
-
     public void GuardarPedidos(List<Pedidos> pedidos)
     {
         // Serializo la lista en JSON con formato indentado (más legible)

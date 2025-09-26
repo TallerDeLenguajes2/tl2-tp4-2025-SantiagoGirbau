@@ -14,13 +14,37 @@
   {
     "Nro": 2,
     "Obs": "Est\u00E1 podrido",
-    "EstadoPedido": 0,
-    "Cadete": null,
+    "EstadoPedido": 1,
+    "Cadete": {
+      "Id": 41,
+      "Nombre": "Peter Parkinson",
+      "Direccion": "Calle Falsa 123",
+      "Telefono": "555-1111",
+      "CantidadDePedidosEntregados": 0
+    },
     "Cliente": {
       "Nombre": "Sanrylo",
       "Direccion": "Romano",
       "Telefono": "1243252345",
       "DatosReferenciaDireccion": "pdoriudo"
+    }
+  },
+  {
+    "Nro": 6,
+    "Obs": "No tirar contra el piso",
+    "EstadoPedido": 2,
+    "Cadete": {
+      "Id": 38,
+      "Nombre": "Lucas GroundRunner",
+      "Direccion": "Avenida Siempreviva 742",
+      "Telefono": "555-2222",
+      "CantidadDePedidosEntregados": 0
+    },
+    "Cliente": {
+      "Nombre": "Joaquina",
+      "Direccion": "Romano 950",
+      "Telefono": "3816549723",
+      "DatosReferenciaDireccion": "Casa Roja"
     }
   }
 ]

@@ -55,5 +55,48 @@ namespace CadeteriaWebApi.Controllers
             accesoADatos.GuardarPedidos(cadeteria.ListadoPedidos);
             return Created();
         }
+        [HttpPut("AsignarPedido")]
+        public ActionResult<bool> AsignarPedido(int idPedido, int idCadete)
+        {
+            var pedido = cadeteria.ListadoPedidos[idPedido];
+            var cadete = cadeteria.ListadoCadetes[idCadete];
+            pedido.Cadete = cadete;
+            accesoADatos.GuardarPedidos(cadeteria.ListadoPedidos);
+            return Ok();
+        }
+
+        [HttpPut("CambiarEstadoPedido")]
+        public ActionResult<bool> CambiarEstadoPedido(int idPedido, int Estado)
+        {
+            var pedido = cadeteria.ListadoPedidos[idPedido];
+            switch (Estado)
+            {
+                case 0:
+                    pedido.EstadoPedido = Pedidos.Estado.pendiente;
+                    break;
+                case 1:
+                    pedido.EstadoPedido = Pedidos.Estado.entregado;
+                    cadeteria.ListadoPedidos[idPedido].Cadete.CantidadDePedidosEntregados++;
+                    break;
+                case 2:
+                    pedido.EstadoPedido = Pedidos.Estado.cancelado;
+                    break;
+                default:
+                    pedido.EstadoPedido = Pedidos.Estado.pendiente;
+                    break;
+            }
+
+            accesoADatos.GuardarPedidos(cadeteria.ListadoPedidos);
+            return Ok();
+        }
+        [HttpPut("CambiarCadetePedido")]
+        public ActionResult<bool> CambiarCadetePedido(int idPedido, int idNuevoCadete)
+        {
+            var pedido = cadeteria.ListadoPedidos[idPedido];
+            var cadete = cadeteria.ListadoCadetes[idNuevoCadete];
+            pedido.Cadete = cadete;
+            accesoADatos.GuardarPedidos(cadeteria.ListadoPedidos);
+            return Ok();
+        }
     }
 }
