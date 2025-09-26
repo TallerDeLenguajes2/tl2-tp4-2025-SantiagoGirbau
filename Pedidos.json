@@ -1,0 +1,26 @@
+[
+  {
+    "Nro": 0,
+    "Obs": "fsdaafsdafds",
+    "EstadoPedido": 0,
+    "Cadete": null,
+    "Cliente": {
+      "Nombre": "wfasdsdaf",
+      "Direccion": "fsdafadsasdf",
+      "Telefono": "fsadfsadafsd",
+      "DatosReferenciaDireccion": "fsaafsdasdf"
+    }
+  },
+  {
+    "Nro": 2,
+    "Obs": "Est\u00E1 podrido",
+    "EstadoPedido": 0,
+    "Cadete": null,
+    "Cliente": {
+      "Nombre": "Sanrylo",
+      "Direccion": "Romano",
+      "Telefono": "1243252345",
+      "DatosReferenciaDireccion": "pdoriudo"
+    }
+  }
+]

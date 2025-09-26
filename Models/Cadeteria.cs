@@ -49,6 +49,17 @@ public class Cadeteria
     }
 
 
+    public void AgregarPedido(string nombreCliente, string direccionCliente, string telefonoCliente, string datosReferencia, string observaciones)
+{
+    // Crear cliente
+    Clientes cliente = new Clientes(nombreCliente, direccionCliente, telefonoCliente, datosReferencia);
+
+    // Crear pedido
+    Pedidos pedido = new Pedidos(observaciones, cliente);
+
+    // Agregar al listado
+    ListadoPedidos.Add(pedido);
+}
     public void asignarCadete()
     {
         if (listadoPedidos.Count != 0)

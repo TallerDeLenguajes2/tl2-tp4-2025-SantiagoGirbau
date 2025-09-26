@@ -11,6 +11,7 @@ public class Pedidos{
     public string Obs { get => obs; set => obs = value; }
     public Estado EstadoPedido { get => estado; set => estado = value; }
     public Cadetes Cadete { get => cadete; set => cadete = value; }
+     public Clientes Cliente { get => cliente; set => cliente = value; }
 
     public Pedidos(string obs, Clientes cliente){
 

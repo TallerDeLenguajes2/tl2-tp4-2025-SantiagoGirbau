@@ -1,0 +1,30 @@
+[
+  {
+    "Id": 1,
+    "Nombre": "Peter Parkinson",
+    "Direccion": "Calle Falsa 123",
+    "Telefono": "555-1111",
+    "CantidadDePedidosEntregados": 0
+  },
+  {
+    "Id": 2,
+    "Nombre": "Lucas GroundRunner",
+    "Direccion": "Avenida Siempreviva 742",
+    "Telefono": "555-2222",
+    "CantidadDePedidosEntregados": 0
+  },
+  {
+    "Id": 3,
+    "Nombre": "Destornillador J. Ferír",
+    "Direccion": "San Martín 456",
+    "Telefono": "555-3333",
+    "CantidadDePedidosEntregados": 0
+  },
+  {
+    "Id": 4,
+    "Nombre": "Violeta Amanda Bonk",
+    "Direccion": "Belgrano 890",
+    "Telefono": "555-4444",
+    "CantidadDePedidosEntregados": 0
+  }
+]
