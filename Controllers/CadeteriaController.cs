@@ -45,18 +45,19 @@ namespace CadeteriaWebApi.Controllers
         }
 
         [HttpPost("AgregarPedido")]
-        public ActionResult<Pedidos> AgregarPedido(string nombreCliente, string direccionCliente, string telefonoCliente, string datosReferencia, string observaciones)
+        public ActionResult<Pedido> AgregarPedido(Pedido Pedido)
         {
-            Clientes cliente = new Clientes(nombreCliente, direccionCliente, telefonoCliente, datosReferencia);
+            
+            Cliente cliente = new Cliente(Pedido.Cliente.Nombre, Pedido.Cliente.Direccion, Pedido.Cliente.Telefono, Pedido.Cliente.DatosReferenciaDireccion);
 
-            Pedidos pedido = new Pedidos(observaciones, cliente);
+            Pedido pedido = new Pedido(Pedido.Obs, cliente);
 
             cadeteria.ListadoPedidos.Add(pedido);
             accesoADatos.GuardarPedidos(cadeteria.ListadoPedidos);
             return Created();
         }
         [HttpPut("AsignarPedido")]
-        public ActionResult<Pedidos> AsignarPedido(int idPedido, int idCadete)
+        public ActionResult<Pedido> AsignarPedido(int idPedido, int idCadete)
         {
             var pedido = cadeteria.ListadoPedidos[idPedido];
             var cadete = cadeteria.ListadoCadetes[idCadete];
@@ -66,23 +67,23 @@ namespace CadeteriaWebApi.Controllers
         }
 
         [HttpPut("CambiarEstadoPedido")]
-        public ActionResult<Pedidos> CambiarEstadoPedido(int idPedido, int Estado)
+        public ActionResult<Pedido> CambiarEstadoPedido(int idPedido, int Estado)
         {
             var pedido = cadeteria.ListadoPedidos[idPedido];
             switch (Estado)
             {
                 case 0:
-                    pedido.EstadoPedido = Pedidos.Estado.pendiente;
+                    pedido.EstadoPedido = Pedido.Estado.pendiente;
                     break;
                 case 1:
-                    pedido.EstadoPedido = Pedidos.Estado.entregado;
+                    pedido.EstadoPedido = Pedido.Estado.entregado;
                     cadeteria.ListadoPedidos[idPedido].Cadete.CantidadDePedidosEntregados++;
                     break;
                 case 2:
-                    pedido.EstadoPedido = Pedidos.Estado.cancelado;
+                    pedido.EstadoPedido = Pedido.Estado.cancelado;
                     break;
                 default:
-                    pedido.EstadoPedido = Pedidos.Estado.pendiente;
+                    pedido.EstadoPedido = Pedido.Estado.pendiente;
                     break;
             }
 
@@ -90,7 +91,7 @@ namespace CadeteriaWebApi.Controllers
             return Ok(pedido);
         }
         [HttpPut("CambiarCadetePedido")]
-        public ActionResult<Pedidos> CambiarCadetePedido(int idPedido, int idNuevoCadete)
+        public ActionResult<Pedido> CambiarCadetePedido(int idPedido, int idNuevoCadete)
         {
             var pedido = cadeteria.ListadoPedidos[idPedido];
             var cadete = cadeteria.ListadoCadetes[idNuevoCadete];

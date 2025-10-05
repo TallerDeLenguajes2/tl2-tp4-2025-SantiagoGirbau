@@ -12,7 +12,7 @@ public class AccesoADatosCSV : IAccesoADatos
         foreach (var infoCadete in textoCadetes)
         {
             var datosCadete = infoCadete.Split(',');
-            Cadetes cadete = new Cadetes(datosCadete[1], datosCadete[2], datosCadete[3]);
+            Cadete cadete = new Cadete(datosCadete[1], datosCadete[2], datosCadete[3]);
             cadeteria.ListadoCadetes.Add(cadete);
         }
         return cadeteria;

@@ -1,4 +1,4 @@
-public class Cadetes{
+public class Cadete{
 
     private static int idMax = 0;
     private int id;
@@ -14,7 +14,7 @@ public class Cadetes{
     public string Telefono {get => telefono; set => telefono = value;}
     public int CantidadDePedidosEntregados { get => cantidadDePedidosEntregados; set => cantidadDePedidosEntregados = value; }
 
-    public Cadetes(string nombre, string direccion, string telefono)
+    public Cadete(string nombre, string direccion, string telefono)
     {
         id = idMax;
         idMax++;

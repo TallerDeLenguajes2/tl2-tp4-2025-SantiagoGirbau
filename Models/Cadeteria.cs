@@ -4,18 +4,18 @@ public class Cadeteria
 {
     private string nombre;
     private string telefono;
-    private List<Cadetes> listadoCadetes;
-    private List<Pedidos> listadoPedidos;
-    public List<Pedidos> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
-    public List<Cadetes> ListadoCadetes { get => listadoCadetes; set => listadoCadetes = value; }
+    private List<Cadete> listadoCadetes;
+    private List<Pedido> listadoPedidos;
+    public List<Pedido> ListadoPedidos { get => listadoPedidos; set => listadoPedidos = value; }
+    public List<Cadete> ListadoCadetes { get => listadoCadetes; set => listadoCadetes = value; }
     public string Nombre { get => nombre; set => nombre = value; }
     public string Telefono { get => telefono; set => telefono = value; }
     public Cadeteria(string nombre, string telefono)
     {
         this.nombre = nombre;
         this.telefono = telefono;
-        this.ListadoCadetes = new List<Cadetes>();
-        this.ListadoPedidos = new List<Pedidos>();
+        this.ListadoCadetes = new List<Cadete>();
+        this.ListadoPedidos = new List<Pedido>();
     }
 
      public List<string> ListarCadetes()
@@ -42,7 +42,7 @@ public class Cadeteria
     public int JornalACobrar(int idCadete)
     {
 
-        Cadetes cadete = listadoCadetes[idCadete];
+        Cadete cadete = listadoCadetes[idCadete];
         int monto = cadete.CantidadDePedidosEntregados * 500;
         cadete.CantidadDePedidosEntregados = 0;
         return monto;
@@ -52,10 +52,10 @@ public class Cadeteria
     public void AgregarPedido(string nombreCliente, string direccionCliente, string telefonoCliente, string datosReferencia, string observaciones)
 {
     // Crear cliente
-    Clientes cliente = new Clientes(nombreCliente, direccionCliente, telefonoCliente, datosReferencia);
+    Cliente cliente = new Cliente(nombreCliente, direccionCliente, telefonoCliente, datosReferencia);
 
     // Crear pedido
-    Pedidos pedido = new Pedidos(observaciones, cliente);
+    Pedido pedido = new Pedido(observaciones, cliente);
 
     // Agregar al listado
     ListadoPedidos.Add(pedido);
@@ -91,7 +91,7 @@ public class Cadeteria
             int Id;
             if (int.TryParse(IdCadete, out Id))
             {
-                Cadetes cadete = listadoCadetes[Id];
+                Cadete cadete = listadoCadetes[Id];
                 listadoPedidos[nroB].Cadete = cadete;
                 System.Console.WriteLine($"Repartidor: {cadete.Nombre}");
                 listarPedidos();
